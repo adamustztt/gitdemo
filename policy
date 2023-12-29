@@ -1,0 +1,357 @@
+1 	功能：运费小于成本价下单失败
+	触发规则：页面用户下单时运费小于成本价时触发
+	预警格式：【大麦家商城线上环境】运费小于成本价下单失败{
+		"沧源ID": "",
+		"沧源价": "",
+		"运费": "",
+		}
+2 	功能：平台验证包裹为黑名单自动退款
+	触发规则：包裹往上游下单时触发
+	预警格式：【大麦家商城线上环境】运费小于成本价下单失败{
+    		'功能' : "平台验证包裹为黑名单自动退款",
+			'信息时间': date("Y-m-d H:i:s"),
+			'包裹ID': $params["package_id"],
+			'包裹信息' : json_decode($package_info),
+			'提示消息' : "退款已成功"
+		}
+3 	功能：平台验证包裹为禁发自动退款或省市区错误
+	触发规则：包裹往上游下单时触发
+	预警格式：【大麦家商城线上环境】运费小于成本价下单失败{
+    		'功能' => "平台验证包裹为禁发自动退款/验证省市错误",
+			'信息时间': date("Y-m-d H:i:s"),
+			'包裹ID': $params["package_id"],
+			'包裹信息' : json_decode($package_info),
+			'提示消息' : "退款已成功"
+		}
+4 	功能：定时请求上游下单捕捉到的异常
+	触发规则：包裹上游下单上游异常时触发
+	预警格式：【大麦家商城线上环境】定时请求上游下单捕捉到的异常{
+    		'message' => "上游返回错误消息",
+		}
+5 	功能：定时请求上游更新商品 
+	触发规则：/定时任务一小时一次
+	预警格式：【大麦家商城线上环境】渠道同步商品失败{
+    		'message' => "错误信息"
+		}
+6 	功能：定时请求上游更新仓库 
+	触发规则：/定时任务一小时一次
+	预警格式：【大麦家商城线上环境】渠道同步商品失败{
+    		'message' => "错误信息"
+		}
+7 	功能：超过30分包裹仍未发货预警
+	触发规则：/定时任务15分钟一次
+	预警格式：【大麦家商城线上环境】超过30分包裹仍未发货预警{
+    		'功能' => "超过30分包裹仍未发货预警",
+			'包裹ID': ""
+		}
+8 	功能：已发货超过30分钟未获取到单号
+	触发规则：/定时任务10分钟一次
+	预警格式：【大麦家商城线上环境】已发货超过30分钟未获取到单号{
+    		'功能' => "已发货超过30分钟未获取到单号",
+			'包裹ID': ""
+		}
+9 	功能：用户使用工具生成订单失败
+	触发规则：用户使用工具下单时
+	预警格式：【大麦家商城线上环境】用户使用工具生成订单失败
+	
+10 	功能：用户使用工具扣款失败
+	触发规则：用户使用工具下单扣款失败时
+	预警格式：【大麦家商城线上环境】用户使用工具扣款失败  站长ID：
+	
+	
+11 	功能：有新的快递底单申请
+	触发规则：有新的快递底单申请
+	预警格式：【大麦家商城线上环境】{
+    		功能 = "有新的快递底单申请";
+			底单数据信息 = $req;
+		}
+12 	功能：api用户包裹取消订单失败
+	触发规则：api用户包裹取消订单失败
+	预警格式：【大麦家商城线上环境】api用户包裹取消订单失败{
+    		包裹ID= $package_id;
+			site_order_consignee_id= $site_order_consignee_id;
+			user_id = $user_id;
+			msg = $e->getMessage();
+			code = $e->getCode();
+			QiWeiTool::sendMessageToBaoJing(env("POLICE_FROM") . "api用户包裹取消订单失败" . json_encode($policy_msg, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+            		
+		}
+13 	功能：韵达沧源下单报错
+	触发规则：韵达沧源下单报错
+	预警格式：【大麦家商城线上环境】韵达沧源{
+    				$policy_msg["功能"] = $function;
+            		$policy_msg["请求链接"] = $url;
+            		$policy_msg["请求参数"] = $data;
+            		$policy_msg["响应结果"] = json_decode($res,true);
+            		$policy_msg["信息时间"] = date("Y-m-d H:i:s");
+		}
+		}
+14 	功能：韵达沧源下单报错
+	触发规则：每分钟定时下单或者后台下单 韵达沧源下单报错
+	预警格式：【大麦家商城线上环境】韵达广州擎天{
+    				$policy_msg["功能"] = $function;
+					$policy_msg["请求链接"] = $url;
+					$policy_msg["请求参数"] = $data;
+					$policy_msg["响应结果"] = json_decode($res,true);
+					$policy_msg["信息时间"] = date("Y-m-d H:i:s");
+		}
+		}
+15 	功能：抖音erp
+	触发规则：抖音erp下单报错
+	预警格式：【大麦家商城线上环境】{
+    				$policy_msg = [
+							'功能' => "dyErp",
+							'请求链接' =>$baseUrl . $url,
+							'请求参数' => $requestParams,
+							'响应结果' => $data,
+							'信息时间' => date("Y-m-d H:i:s"),
+							'提示消息' => "dyserp请求失败"
+						];
+		}
+16 	功能：快手Erp
+	触发规则：快手Erp下单报错
+	预警格式：【大麦家商城线上环境】快手Erp{
+    				$policy_msg = [
+						'功能' => "快手Erp",
+						'请求链接' =>$baseUrl . "v1/api/ks/request",
+						'请求参数' => $requestParams,
+						'响应结果' => $data,
+						'信息时间' => date("Y-m-d H:i:s"),
+						'提示消息' => "kserp请求失败"
+					];
+		}
+		}
+17 	功能：pddErp
+	触发规则：pddErp下单报错
+	预警格式：【大麦家商城线上环境】快手Erp{
+    				$policy_msg = [
+						'功能' => "pddErp",
+						'请求参数' => $requestParams,
+						'响应结果' => $data,
+						'信息时间' => date("Y-m-d H:i:s"),
+						'提示消息' => "pdderp请求失败"
+					];
+		}
+18 	功能：tbErp
+	触发规则：tbErp下单报错
+	预警格式：【大麦家商城线上环境】tbErp{
+    				$policy_msg = [
+							'功能' => "tbErp",
+							'请求链接' =>$baseUrl . "api/tb/sendRequest",
+							'请求参数' => $requestParams,
+							'响应结果' => $data,
+							'信息时间' => date("Y-m-d H:i:s"),
+							'提示消息' => "tbserp请求失败"
+						];
+		}
+19 	功能：Vt工具
+	触发规则：Vt工具下单报错
+	预警格式：【大麦家商城线上环境】{
+    				$policy_msg = [
+						'功能'=>"Vttt工具",
+						'请求链接'=> $baseUrl.$url,
+						'请求参数'=> $params,
+						'响应结果'=> $data,
+						'信息时间'=>date("Y-m-d H:i:s"),
+						'提示消息'=>"vvv请求失败"
+					];
+		}
+20 	功能：仓库成本价已修改的仓库
+	触发规则：定时任务每一小时检测报警
+	预警格式：【大麦家商城线上环境】仓库成本价已修改的仓库{
+    		$policy_data[$index]["仓源id"] = $warehouse->id;
+			$policy_data[$index]["仓源别名"] = $warehouse->alias_name;
+			$policy_data[$index]["原仓源成本价"] = $warehouse->cost_price;
+			$policy_data[$index]["新仓源成本价"] = $item['cost_price'];
+		}
+21 	功能：已下架仓库
+	触发规则：定时任务每一小时更新仓库报警
+	预警格式：【大麦家商城线上环境】已下架仓库{
+    		"id"：""
+    		"name"：""
+    		"alias_name"：""
+		}
+22 	功能：礼品价格已更改的商品
+	触发规则：定时任务每一小时更新商品报警
+	预警格式：【大麦家商城线上环境】礼品价格已更改的商品{
+    		$policy_data[$index]["id"] = $productInfo->id;
+			$policy_data[$index]["name"] = $productInfo->name;
+			$policy_data[$index]["up_cost_price"] = $productInfo->up_cost_price;
+			$policy_data[$index]["new_up_cost_price"] = $item['up_cost_price'];
+		}
+23 	功能：礼品价格已下架的商品
+    	触发规则：定时任务每一小时更新商品报警
+	预警格式：【大麦家商城线上环境】运费小于成本价下单失败{
+    		'id' => "",
+			'name': "",
+		}
+24 	功能：深圳韵达仓库下单失败
+	触发规则：深圳韵达仓库下单失败
+	预警格式：【大麦家商城线上环境】运费小于成本价下单失败{
+    		'功能' => "请求下单",
+			'请求链接' => $this->requestUrl,
+			'请求参数' => $this->requestParams,
+			'响应结果' => $req,
+			'信息时间' => date("Y-m-d H:i:s")
+		}
+25 	功能：深圳韵达仓库获取单号失败
+	触发规则：深圳韵达仓库获取单号失败
+	预警格式：【大麦家商城线上环境】深圳韵达仓库获取单号失败{
+			'功能' => "请求下单",
+			'请求链接' => $this->requestUrl,
+			'请求参数' => $this->requestParams,
+			'响应结果' => $req,
+			'信息时间' => date("Y-m-d H:i:s")
+		}
+26 	功能：发B仓库获取面单失败
+	触发规则：发B仓库获取面单失败/一分钟一次更新单号失败保健
+	预警格式：【大麦家商城线上环境】FaB仓库{
+			$policy_msg["请求获取面单接口"] = "/newApi/bus/expressSheet/list";
+            		$policy_msg["仓库ID"] = $storeId;
+            		$policy_msg["包裹ID"] = $order_consignee_id;
+            		$policy_msg["返回结果"] = $expressList;
+		}
+27 	功能：发B仓库查询订单为退款
+	触发规则：发B仓库查询订单为退款/一分钟一次更新单号失败
+	预警格式：【大麦家商城线上环境】FaB仓库{
+			'功能'=>"获取运单号失败 苍源订单为退款状态",
+			'请求链接'=> $this->requestUrl,
+			'请求参数'=> $this->requestParams,
+			'响应结果'=> $this->apiResponse,
+			'信息时间'=>date("Y-m-d H:i:s"),
+			'提示消息'=>"退款已成功"
+		}
+28 	功能：发B仓库请求返回失败/礼品库存不足/地址禁发/仓库已关闭
+	触发规则：发B仓库请求返回失败/礼品库存不足/地址禁发/仓库已关闭
+	预警格式：【大麦家商城线上环境】FaB仓库{
+			$policy_msg = [
+					'功能'=>$function,
+					'请求链接'=> $this->requestUrl,
+					'请求参数'=> $this->requestParams,
+					'响应结果'=> $contents,
+					'信息时间'=>date("Y-m-d H:i:s"),
+					"damaijia_user_id"=>$this->damaijia_user_id
+					"msg"= "退款已成功";"
+				];
+		}
+29 	功能：快递云仓库下单失败/疫情/该收件地已停发/不支持该地区申请面单/超出服务范围
+	触发规则：快递云仓库下单失败/疫情/该收件地已停发/不支持该地区申请面单/超出服务范围/一分钟一次更新单号失败保健
+	预警格式：【大麦家商城线上环境】快递云仓库{
+			$policy_msg["功能"] = "请求下单";
+			$policy_msg["请求链接"] = $this->baseUrl."/openApi/orderCreate";
+			$policy_msg["请求参数"] = $this->requestParams;
+			$policy_msg["响应结果"] =$req;
+			$policy_msg["错误"] ="获取运单号失败";
+			$policy_msg["damaijia_user_id"] =$this->damaijia_user_id;
+		}
+31 	功能：礼品岛账户余额已不足50元
+	触发规则：礼品岛账户余额已不足50元
+	预警格式：【大麦家商城线上环境】快递云仓库{
+    		礼品岛账户余额已不足50元
+		}
+32 	功能：礼品岛请求失败预警/获取仓库/取消订单/获取快递/请求下单/查询订单
+	触发规则：包裹往上游下单时触发
+	预警格式：【大麦家商城线上环境】{
+    		$policy_msg = [
+				'功能' => $function,
+				'请求链接' => $this->requestUrl,
+				'请求参数' => $this->requestParams,
+				'响应结果' => $contents,
+				'信息时间' => date("Y-m-d H:i:s"),
+				"damaijia_user_id" => $this->damaijia_user_id
+				$policy_msg["msg"] = "退款已成功";
+			];
+		}
+33 	功能：深圳韵达仓库
+	触发规则：包裹往上游下单时触发
+	预警格式：【大麦家商城线上环境】深圳韵达仓库{
+    		$policy_msg = [
+				'功能' => $function,
+				'请求链接' => $this->requestUrl,
+				'请求参数' => $this->requestParams,
+				'响应结果' => $contents,
+				'信息时间' => date("Y-m-d H:i:s"),
+				"damaijia_user_id" => $this->damaijia_user_id
+				$policy_msg["msg"] = "退款已成功";
+			];
+		}
+34	功能：顺丰仓库账户余额已不足50元
+	触发规则：顺丰仓库账户余额已不足50元
+	预警格式：【大麦家商城线上环境】{
+    		顺丰仓库账户余额已不足50元
+		}
+35 	功能：顺丰仓库
+	触发规则：包裹往上游下单时触发
+	预警格式：【大麦家商城线上环境】顺丰仓库{
+    		'功能'=> "请求下单",
+			'请求链接'=> $this->requestUrl,
+			'请求参数'=> $this->requestParams,
+			'响应结果'=> $this->apiResponse,
+		}
+36 	功能：顺丰仓库下单
+	触发规则：包裹往上游下单时触发/商品库存不足
+	预警格式：【大麦家商城线上环境】顺丰仓库{
+    		'功能'=>"获取运单号失败 苍源订单为退款状态",
+			'请求链接'=> $this->requestUrl,
+			'请求参数'=> $this->requestParams,
+			'响应结果'=> $this->apiResponse,
+			'信息时间'=>date("Y-m-d H:i:s"),
+			'提示消息'=>"退款已成功"
+		}
+37 	功能：平台验证包裹为禁发自动退款
+	触发规则：包裹往上游下单时触发
+	预警格式：【大麦家商城线上环境】运费小于成本价下单失败{
+    		'功能' => "平台验证包裹为禁发自动退款",
+			'信息时间': date("Y-m-d H:i:s"),
+			'包裹ID': $params["package_id"],
+			'包裹信息' : json_decode($package_info),
+			'提示消息' : "退款已成功"
+		}
+38	功能：闪电发货仓库报错 /获取仓库/获取商品/获取快递/请求下单/查询订单
+	触发规则：请求上游时触发时触发
+	预警格式：【大麦家商城线上环境】运费小于成本价下单失败{
+    		$policy_msg = [
+					'功能'=>/获取仓库/获取商品/获取快递/请求下单/查询订单
+					'请求链接'=> $this->requestUrl,
+					'请求参数'=> $this->requestParams,
+					'响应结果'=> $this->apiResponse,
+					'信息时间'=>date("Y-m-d H:i:s"),
+					'提示消息'=>"退款已成功",
+					'damaijia_user_id'=>$this->damaijia_user_id
+				];、
+		}
+39	功能：韵达广州擎天 仓库报错 /获取仓库/获取商品/获取快递/请求下单/查询订单
+	触发规则：请求上游时触发时触发
+	预警格式：【大麦家商城线上环境】韵达广州擎天{
+    		$policy_msg = [
+					'功能'=>/获取仓库/获取商品/获取快递/请求下单/查询订单
+					'请求链接'=> $this->requestUrl,
+					'请求参数'=> $this->requestParams,
+					'响应结果'=> $this->apiResponse,
+					'信息时间'=>date("Y-m-d H:i:s"),
+					'提示消息'=>"退款已成功",
+					'damaijia_user_id'=>$this->damaijia_user_id
+				];、
+		}
+40	功能：云礼品仓库
+	触发规则：包裹往上游请求时
+	预警格式：【大麦家商城线上环境】云礼品仓库{
+			"功能"=>$function,
+			'请求链接' => $this->requestUrl,
+			'请求参数'=> $this->requestParams,
+			'响应结果'=> $contents,
+			'信息时间'=>date("Y-m-d H:i:s"),
+			'damaijia_user_id'=>$this->damaijia_user_id
+		}
+{
+		"senderName": "李薇薇",
+		"senderPhone": "13291678475",
+		"senderProv": "浙江省",
+		"senderCity": "绍兴市",
+		"senderCounty": "上虞区",
+		"senderAddress": "曹娥街道经济开发区志云仓库",
+		"emptyTypeId": "197",
+		"addresslist": "[{\"orderNo\":\"2858188790498364335\",\"weight\":1,\"shopName\":\"\",\"ContactName\":\"\刘**\",\"ContactPhone\":\"*******3960\",\"Province\":\"\广\东\省\",\"City\":\"\揭\阳\市\",\"District\":\"\普\宁\市\",\"AddressDetail\":\"\洪*\镇**\村*\园**\局**\",\"oaid\":\"1VcmuXzfxB8ribZVqLRD5jZCzkHlQDUThtu5WIQ3arQ1ZwRKS1nr98TssidIpMpeiaFvVkWKS\"}]",
+		"userName": "13291678475",
+		"key": "c12356789"
+	}
