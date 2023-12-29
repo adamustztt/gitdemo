@@ -1,0 +1,1915 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "\u5927\u9ea6\u5bb6\u524d\u53f0",
+        "version": "1.0.0"
+    },
+    "host": "admin.taobao2622.com/",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/v1/warehouse_get_list": {
+            "get": {
+                "tags": [
+                    "\u5feb\u9012\u7ba1\u7406"
+                ],
+                "summary": "\u83b7\u53d6\u5feb\u9012\u5217\u8868\u63a5\u53e3",
+                "description": "\u83b7\u53d6\u5feb\u9012\u5217\u8868\u63a5\u53e3",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/CustomWarehouseGetListV1ResultBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/listUserShop": {
+            "post": {
+                "tags": [
+                    "\u5e97\u94fa\u7ba1\u7406"
+                ],
+                "summary": "\u5e97\u94fa\u5217\u8868",
+                "description": "\u5e97\u94fa\u5217\u8868",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {}
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/ListUserShopBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/getUserShop": {
+            "post": {
+                "tags": [
+                    "\u5e97\u94fa\u7ba1\u7406"
+                ],
+                "summary": "\u5e97\u94fa\u8be6\u60c5",
+                "description": "\u5e97\u94fa\u8be6\u60c5",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "description": "\u5e97\u94fa\u6570\u636eid \u975e\u5fc5\u586b",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/ListUserShopBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/setUserShop": {
+            "post": {
+                "tags": [
+                    "\u5e97\u94fa\u7ba1\u7406"
+                ],
+                "summary": "\u5e97\u94fa\u8bbe\u7f6e",
+                "description": "\u5e97\u94fa\u8bbe\u7f6e",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "description": "\u5e97\u94fa\u6570\u636eid",
+                                    "type": "string"
+                                },
+                                "shop_status": {
+                                    "description": "\u5e97\u94fa\u72b6\u6001 1\u5f00\u542f 0\u5173\u95ed",
+                                    "type": "string"
+                                },
+                                "is_tag": {
+                                    "description": "\u662f\u5426\u6807\u8bb0 1\u662f 0\u5426",
+                                    "type": "string"
+                                },
+                                "tag_color": {
+                                    "description": "\u6807\u8bb0\u989c\u8272 'red','yellow','green','purple','blue'",
+                                    "type": "string"
+                                },
+                                "remark": {
+                                    "description": "\u5e97\u94fa\u5907\u6ce8",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/ListUserShopBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/deleteShop": {
+            "post": {
+                "tags": [
+                    "\u5e97\u94fa\u7ba1\u7406"
+                ],
+                "summary": "\u5e97\u94fa\u5220\u9664",
+                "description": "\u5e97\u94fa\u5220\u9664",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "description": "\u5e97\u94fa\u6570\u636eid",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/refreshGerUserShop": {
+            "post": {
+                "tags": [
+                    "\u5e97\u94fa\u7ba1\u7406"
+                ],
+                "summary": "\u5237\u65b0\u83b7\u53d6\u7ed1\u5b9a\u8ba2\u8d2d\u5e97\u94fa\u4fe1\u606f",
+                "description": "\u5237\u65b0\u83b7\u53d6\u7ed1\u5b9a\u8ba2\u8d2d\u5e97\u94fa\u4fe1\u606f",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "shop_type": {
+                                    "description": "\u5e97\u94fa\u7c7b\u578b  tb pdd ",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/ListUserShopBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/authorizationShop": {
+            "post": {
+                "tags": [
+                    "\u5e97\u94fa\u7ba1\u7406"
+                ],
+                "summary": "\u91cd\u65b0\u6388\u6743",
+                "description": "\u91cd\u65b0\u6388\u6743",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "description": "id",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/getUserShopByProductId": {
+            "post": {
+                "tags": [
+                    "\u5e97\u94fa\u7ba1\u7406"
+                ],
+                "summary": "\u83b7\u53d6\u5546\u54c1\u652f\u6301\u53d1\u8d27\u5e97\u94fa",
+                "description": "\u83b7\u53d6\u5546\u54c1\u652f\u6301\u53d1\u8d27\u5e97\u94fa",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "product_id": {
+                                    "description": "\u5546\u54c1id",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/ListUserShopBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/submitExpressSheet": {
+            "post": {
+                "tags": [
+                    "\u8ba2\u5355\u7ba1\u7406"
+                ],
+                "summary": "\u5305\u88f9\u7533\u8bf7\u5e95\u5355",
+                "description": "\u5305\u88f9\u7533\u8bf7\u5e95\u5355",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "email": {
+                                    "description": "email",
+                                    "type": "string"
+                                },
+                                "reason": {
+                                    "description": "\u7533\u8bf7\u539f\u56e0",
+                                    "type": "string"
+                                },
+                                "package_id": {
+                                    "description": "\u5305\u88f9ID",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/external/v1/order_create": {
+            "post": {
+                "tags": [
+                    "API\u63a5\u53e3\u7ba1\u7406"
+                ],
+                "summary": "\u65b0\u7248\u521b\u5efa\u8ba2\u5355\u63a5\u53e3",
+                "description": "\u65b0\u7248\u521b\u5efa\u8ba2\u5355\u63a5\u53e3",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "product_id": {
+                                    "description": "\u5546\u54c1ID",
+                                    "type": "int"
+                                },
+                                "site_order_id": {
+                                    "description": "\u81ea\u5b9a\u4e49\u8ba2\u5355ID",
+                                    "type": "int"
+                                },
+                                "product_number": {
+                                    "description": "\u4e0b\u5355\u6570\u91cf",
+                                    "type": "int"
+                                },
+                                "remark": {
+                                    "description": "\u5907\u6ce8",
+                                    "type": "int"
+                                },
+                                "source": {
+                                    "description": "\u6765\u6e90 taobao:\u6dd8\u5b9d tmall\uff1a\u5929\u732b jd\uff1a\u4eac\u4e1c pdd\uff1a\u62fc\u591a\u591a other:\u5176\u4ed6",
+                                    "type": "int"
+                                },
+                                "consignees": {
+                                    "description": "\u6536\u8d27\u4eba\u4fe1\u606f",
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "site_order_consignee_id": {
+                                                "description": "\u81ea\u5b9a\u4e49\u5305\u88f9id",
+                                                "type": "string"
+                                            },
+                                            "consignee": {
+                                                "description": "\u6536\u8d27\u4eba",
+                                                "type": "string"
+                                            },
+                                            "mobile": {
+                                                "description": "\u624b\u673a\u53f7",
+                                                "type": "string"
+                                            },
+                                            "province": {
+                                                "description": "\u7701\u4efd",
+                                                "type": "string"
+                                            },
+                                            "city": {
+                                                "description": "\u57ce\u5e02",
+                                                "type": "string"
+                                            },
+                                            "district": {
+                                                "description": "\u533a\u57df",
+                                                "type": "string"
+                                            },
+                                            "address": {
+                                                "description": "\u8be6\u7ec6\u5730\u5740",
+                                                "type": "string"
+                                            },
+                                            "platform_order_sn": {
+                                                "description": "\u7b2c\u4e09\u65b9\u5e73\u53f0\u8ba2\u5355\u53f7\uff1a\u6dd8\u3001\u732b\u3001\u4eac\u3001\u62fc\u7b49\u5e73\u53f0\u8ba2\u5355\u7f16\u53f7\uff0c\u5982\u65e0\u8ba2\u5355\u7f16\u53f7\u53ef\u968f\u673a\u586b\u5199",
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "properties": {
+                                "order_id": {
+                                    "description": "\u8ba2\u5355ID",
+                                    "type": "string"
+                                },
+                                "order_sn": {
+                                    "description": "\u8ba2\u5355\u7f16\u53f7",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/external/v1/product_get_list": {
+            "get": {
+                "tags": [
+                    "API\u63a5\u53e3\u7ba1\u7406"
+                ],
+                "summary": "\u83b7\u53d6\u5546\u54c1\u5217\u8868\u63a5\u53e3",
+                "description": "\u83b7\u53d6\u5546\u54c1\u5217\u8868\u63a5\u53e3",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "\u4ed3\u5e93id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "\u7b2c\u51e0\u9875",
+                        "type": "string"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "\u6bcf\u9875\u6570\u91cf",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/GetProductListV1ResultBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/external/v1/warehouse_get_list": {
+            "get": {
+                "tags": [
+                    "API\u63a5\u53e3\u7ba1\u7406"
+                ],
+                "summary": "\u83b7\u53d6\u5feb\u9012\u5217\u8868\u63a5\u53e3",
+                "description": "\u83b7\u53d6\u5feb\u9012\u5217\u8868\u63a5\u53e3",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/GetListV1ResultBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/recordUserInviteCount": {
+            "get": {
+                "tags": [
+                    "\u4e2a\u4eba\u4e2d\u5fc3"
+                ],
+                "summary": "\u590d\u5236\u6389\u6b64\u63a5\u53e3",
+                "description": "\u590d\u5236\u6389\u6b64\u63a5\u53e3 \u8bb0\u5f55\u7528\u6237\u590d\u5236\u6b21\u6570",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/listInviteLog": {
+            "post": {
+                "tags": [
+                    "\u4e2a\u4eba\u4e2d\u5fc3"
+                ],
+                "summary": "\u9080\u8bf7\u660e\u7ec6",
+                "description": "\u9080\u8bf7\u660e\u7ec6",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "\u9875",
+                        "type": "string"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "\u6bcf\u9875\u6570\u91cf",
+                        "type": "string"
+                    },
+                    {
+                        "name": "mobile",
+                        "in": "query",
+                        "description": "\u7c89\u4e1d\u8d26\u53f7",
+                        "type": "string"
+                    },
+                    {
+                        "name": "create_time",
+                        "in": "query",
+                        "description": "\u6ce8\u518c\u65f6\u95f4  \u8303\u56f4\u67e5\u8be2 \u6570\u7ec4\u683c\u5f0f\u300c\u5f00\u59cb\u65f6\u95f4\uff0c\u7ed3\u675f\u65f6\u95f4\u300d",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "properties": {
+                                "total_count": {
+                                    "description": "\u603b\u6ce8\u518c\u6570\u91cf",
+                                    "type": "string"
+                                },
+                                "today_count": {
+                                    "description": "\u4eca\u5929\u6ce8\u518c\u6570\u91cf",
+                                    "type": "string"
+                                },
+                                "count": {
+                                    "description": "\u67e5\u8be2\u603b\u6761\u6570",
+                                    "type": "string"
+                                },
+                                "list.id": {
+                                    "description": "\u7f16\u53f7",
+                                    "type": "string"
+                                },
+                                "list.invited_user.mobile": {
+                                    "description": "\u7c89\u4e1d\u8d26\u53f7",
+                                    "type": "string"
+                                },
+                                "list.create_time": {
+                                    "description": "\u6ce8\u518c\u65f6\u95f4",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/package_get_list": {
+            "post": {
+                "tags": [
+                    "\u8ba2\u5355\u7ba1\u7406"
+                ],
+                "summary": "\u5305\u88f9\u5217\u8868",
+                "description": "\u5305\u88f9\u5217\u8868",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "filter.order_sn": {
+                                    "description": "\u8ba2\u5355\u53f7",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/PackageGetListBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/getPlatformOrder": {
+            "post": {
+                "tags": [
+                    "\u8ba2\u5355\u7ba1\u7406"
+                ],
+                "summary": "\u83b7\u53d6\u7535\u5546\u5e73\u53f0\u8ba2\u5355\u5217\u8868",
+                "description": "\u83b7\u53d6\u7535\u5546\u5e73\u53f0\u8ba2\u5355\u5217\u8868",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "shop_id": {
+                                    "description": "\u5e97\u94faID",
+                                    "type": "string"
+                                },
+                                "product_id": {
+                                    "description": "\u5546\u54c1id",
+                                    "type": "string"
+                                },
+                                "shop_type": {
+                                    "description": "\u5e97\u94fa\u7c7b\u578b tb pdd ks",
+                                    "type": "string"
+                                },
+                                "page": {
+                                    "description": "\u7b2c\u51e0\u9875  \u6bcf\u9875\u56fa\u5b9a\u8fd4\u56de20\u6761",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/ListPlatformOrderBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/entryCreateOrder": {
+            "post": {
+                "tags": [
+                    "\u8ba2\u5355\u7ba1\u7406"
+                ],
+                "summary": "\u5bc6\u6587\u4e0b\u5355",
+                "description": "\u5bc6\u6587\u4e0b\u5355",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "shop_id": {
+                                    "description": "\u5e97\u94faID",
+                                    "type": "string"
+                                },
+                                "source": {
+                                    "description": "\u4e0b\u5355\u5e73\u53f0\u7c7b\u578b \u53bb\u5e97\u94fa\u91cc\u7684\u7c7b\u578b",
+                                    "type": "string"
+                                },
+                                "product_id": {
+                                    "description": "\u5546\u54c1id",
+                                    "type": "string"
+                                },
+                                "consignees": {
+                                    "description": "\u53d1\u8d27\u5305\u88f9\u4fe1\u606f \u5185\u5bb9\u53d6\u62c9\u53d6\u8fd4\u56de\u6570\u636e\u5185\u5bb9",
+                                    "type": "string",
+                                    "items": {
+                                        "properties": {
+                                            "ext_platform_order_sn": {
+                                                "description": "\u7b2c\u4e09\u65b9\u5e73\u53f0\u7f16\u53f7",
+                                                "type": "string"
+                                            },
+                                            "consignee": {
+                                                "description": "\u6536\u8d27\u4eba",
+                                                "type": "string"
+                                            },
+                                            "consignee_mask": {
+                                                "description": "\u6536\u8d27\u4eba\u8131\u654f",
+                                                "type": "string"
+                                            },
+                                            "mobile": {
+                                                "description": "\u624b\u673a\u53f7",
+                                                "type": "string"
+                                            },
+                                            "mobile_mask": {
+                                                "description": "\u624b\u673a\u53f7\u8131\u654f",
+                                                "type": "string"
+                                            },
+                                            "province": {
+                                                "description": "\u7701\u4efd",
+                                                "type": "string"
+                                            },
+                                            "city": {
+                                                "description": "\u57ce\u5e02",
+                                                "type": "string"
+                                            },
+                                            "district": {
+                                                "description": "\u533a\u57df",
+                                                "type": "string"
+                                            },
+                                            "address": {
+                                                "description": "\u8be6\u7ec6\u5730\u5740",
+                                                "type": "string"
+                                            },
+                                            "address_mask": {
+                                                "description": "\u8be6\u7ec6\u5730\u5740\u8131\u654f\u6570\u636e",
+                                                "type": "string"
+                                            },
+                                            "oaid": {
+                                                "description": "oaid \u6dd8\u5b9d\u5bc6\u6587",
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/ListPlatformOrderBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/product_get_list": {
+            "post": {
+                "tags": [
+                    "\u5546\u54c1\u7ba1\u7406"
+                ],
+                "summary": "\u5546\u54c1\u5217\u8868\u63a5\u53e3",
+                "description": "\u5546\u54c1\u5217\u8868\u63a5\u53e3",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "warehouseId": {
+                                    "description": "\u5feb\u9012id",
+                                    "type": "int"
+                                },
+                                "expressSendId": {
+                                    "description": "\u53d1\u8d27\u5730ID",
+                                    "type": "int"
+                                },
+                                "page": {
+                                    "description": "\u7b2c\u51e0\u9875",
+                                    "type": "int"
+                                },
+                                "pageSize": {
+                                    "description": "\u6bcf\u9875\u6570\u91cf",
+                                    "type": "int"
+                                },
+                                "sort": {
+                                    "description": "\u6392\u5e8f\u65b9\u5f0f",
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "field": {
+                                                "description": "\u6392\u5e8f\u5b57\u6bb5",
+                                                "type": "string"
+                                            },
+                                            "reverse": {
+                                                "description": "\u6392\u5e8f\u65b9\u5f0f(true\u6b63\u5e8ffalse\u5012\u5e8f)",
+                                                "type": "bool"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/ProductListV1ResultBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/getPayType": {
+            "get": {
+                "tags": [
+                    "\u5145\u503c"
+                ],
+                "summary": "\u83b7\u53d6\u652f\u6301\u5145\u503c\u65b9\u5f0f",
+                "description": "\u83b7\u53d6\u652f\u6301\u5145\u503c\u65b9\u5f0f",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "properties": {
+                                "alipay": {
+                                    "description": "true\u652f\u6301false\u4e0d\u652f\u6301",
+                                    "type": "boolean "
+                                },
+                                "wechat": {
+                                    "description": "true\u652f\u6301false\u4e0d\u652f\u6301",
+                                    "type": "boolean "
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/getBlackNumber": {
+            "post": {
+                "tags": [
+                    "\u7535\u5546\u5de5\u5177"
+                ],
+                "summary": "\u7167\u5996\u955c\u9ed1\u53f7\u5e93",
+                "description": "\u7167\u5996\u955c\u9ed1\u53f7\u5e93",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "description": "\u5de5\u5177id 7",
+                                    "type": "int"
+                                },
+                                "account": {
+                                    "description": "\u8d26\u53f7",
+                                    "type": "int"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/listToolLog": {
+            "post": {
+                "tags": [
+                    "\u7535\u5546\u5de5\u5177"
+                ],
+                "summary": "\u7167\u5996\u955c\u9ed1\u53f7\u5e93\u8bb0\u5f55",
+                "description": "\u7167\u5996\u955c\u9ed1\u53f7\u5e93",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "invoke_method": {
+                                    "description": "\u8bf7\u6c42\u65b9\u6cd5",
+                                    "type": "string"
+                                },
+                                "invoke_status": {
+                                    "description": "\u8bf7\u6c42\u72b6\u6001 1\u5f85\u63a8\u9001 2\u63a8\u9001\u4e2d 3\u63a8\u9001\u6210\u529f 4\u63a8\u9001\u5931\u8d25",
+                                    "type": "int"
+                                },
+                                "invoke_type": {
+                                    "description": "1\u5355\u6761 2 \u6279\u91cf",
+                                    "type": "int"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "properties": {
+                                "invoke_type": {
+                                    "description": "1\u5355\u6761 2 \u6279\u91cf",
+                                    "type": "string"
+                                },
+                                "invoke_status": {
+                                    "description": "\u8bf7\u6c42\u72b6\u6001 1\u5f85\u63a8\u9001 2\u63a8\u9001\u4e2d 3\u63a8\u9001\u6210\u529f 4\u63a8\u9001\u5931\u8d25",
+                                    "type": "string"
+                                },
+                                "complete_time": {
+                                    "description": "\u5b8c\u6210\u65f6\u95f4",
+                                    "type": "string"
+                                },
+                                "create_time": {
+                                    "description": "\u521b\u5efa\u65f6\u95f4",
+                                    "type": "string"
+                                },
+                                "account": {
+                                    "description": "\u8d26\u53f7",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/getToolDetail": {
+            "post": {
+                "tags": [
+                    "\u7535\u5546\u5de5\u5177"
+                ],
+                "summary": "\u7167\u5996\u955c\u9ed1\u53f7\u5e93\u8bb0\u5f55\u8be6\u60c5",
+                "description": "\u7167\u5996\u955c\u9ed1\u53f7\u5e93\u8be6\u60c5",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "description": "\u8bb0\u5f55ID",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "properties": {
+                                "account": {
+                                    "description": "\u8d26\u53f7",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/balance_get_list": {
+            "get": {
+                "tags": [
+                    "\u4e2a\u4eba\u4e2d\u5fc3\u7ba1\u7406"
+                ],
+                "summary": "\u70b9\u5238\u660e\u7ec6\u5217\u8868\u63a5\u53e3",
+                "description": "\u70b9\u5238\u660e\u7ec6\u5217\u8868\u63a5\u53e3",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "\u7b2c\u51e0\u9875",
+                        "type": "string"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "\u6bcf\u9875\u6570\u91cf",
+                        "type": "string"
+                    },
+                    {
+                        "name": "startTime",
+                        "in": "query",
+                        "description": "\u5f00\u59cb\u65f6\u95f4",
+                        "type": "string"
+                    },
+                    {
+                        "name": "endTime",
+                        "in": "query",
+                        "description": "\u7ed3\u675f\u65f6\u95f4",
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "\u4ea4\u6613\u7c7b\u578b",
+                        "type": "string"
+                    },
+                    {
+                        "name": "tradeNumber",
+                        "in": "query",
+                        "description": "\u53d8\u66f4\u7f16\u53f7",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/GetUserBalanceListV1ResultBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "getBalanceLogType": {
+            "get": {
+                "tags": [
+                    "\u4e2a\u4eba\u4e2d\u5fc3\u7ba1\u7406"
+                ],
+                "summary": "\u70b9\u5238\u660e\u7ec6-\u53d8\u66f4\u7c7b\u578b",
+                "description": "\u70b9\u5238\u660e\u7ec6-\u53d8\u66f4\u7c7b\u578b",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/user_get_info": {
+            "post": {
+                "tags": [
+                    "\u4e2a\u4eba\u4e2d\u5fc3"
+                ],
+                "summary": "\u83b7\u53d6\u7528\u6237\u4fe1\u606f",
+                "description": "\u83b7\u53d6\u7528\u6237\u4fe1\u606f",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "description": "ID",
+                                    "type": "string"
+                                },
+                                "max_recharge": {
+                                    "description": "\u5355\u6b21\u6700\u5927\u5145\u503c\u91d1\u989d  \u70b9\u5238",
+                                    "type": "string"
+                                },
+                                "user_level.level_name": {
+                                    "description": "\u7528\u6237\u7b49\u7ea7",
+                                    "type": "string"
+                                },
+                                "balance": {
+                                    "description": "\u4f59\u989d",
+                                    "type": "string"
+                                },
+                                "mobile": {
+                                    "description": "\u767b\u5f55\u8d26\u53f7",
+                                    "type": "string"
+                                },
+                                "invite_code": {
+                                    "description": "\u9080\u8bf7\u7801",
+                                    "type": "string"
+                                },
+                                "is_relation_shop": {
+                                    "description": "1\u5df2\u5173\u8054\u5e97\u94fa  0 \u672a\u5173\u8054\u5e97\u94fa",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/listUserLevel": {
+            "post": {
+                "tags": [
+                    "\u4e2a\u4eba\u4e2d\u5fc3"
+                ],
+                "summary": "\u4f1a\u5458\u4e13\u5c5e\u7279\u6743",
+                "description": "\u4f1a\u5458\u4e13\u5c5e\u7279\u6743",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "properties": {
+                                "img": {
+                                    "description": "\u7b49\u7ea7\u56fe\u7247",
+                                    "type": "string"
+                                },
+                                "level_name": {
+                                    "description": "\u7b49\u7ea7\u540d\u79f0",
+                                    "type": "string"
+                                },
+                                "level_condition": {
+                                    "description": "\u7b49\u7ea7\u6761\u4ef6 \u3010\u9080\u8bf7\u6570\u91cf \u6700\u5927\u5145\u503c\u91d1\u989d\u3011",
+                                    "type": "string"
+                                },
+                                "preferential_amount": {
+                                    "description": "\u5feb\u9012\u4ef7\u683c",
+                                    "type": "string"
+                                },
+                                "tool_preferential_img": {
+                                    "description": "\u5de5\u5177\u4f18\u60e0\u56fe\u7247",
+                                    "type": "string"
+                                },
+                                "tool_preferential_name": {
+                                    "description": "\u5de5\u5177\u4f18\u60e0\u540d\u79f0",
+                                    "type": "string"
+                                },
+                                "customer_service": {
+                                    "description": "\u4e13\u5c5e\u5ba2\u670d",
+                                    "type": "string"
+                                },
+                                "tutor_service": {
+                                    "description": "\u4e13\u5c5e\u8fd0\u8425\u5bfc\u5e08",
+                                    "type": "string"
+                                },
+                                "complaint_service": {
+                                    "description": "\u6295\u8bc9\u5efa\u8bae",
+                                    "type": "string"
+                                },
+                                "new_product_service": {
+                                    "description": "\u65b0\u4ea7\u54c1\u4f18\u5148\u4f7f\u7528",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/listUserLevelExpress": {
+            "post": {
+                "tags": [
+                    "\u4e2a\u4eba\u4e2d\u5fc3"
+                ],
+                "summary": "\u4f1a\u5458\u4e13\u5c5e\u5feb\u9012\u4ef7\u683c",
+                "description": "\u4f1a\u5458\u4e13\u5c5e\u5feb\u9012\u4ef7\u683c",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/userLevelChangePopup": {
+            "post": {
+                "tags": [
+                    "\u4e2a\u4eba\u4e2d\u5fc3"
+                ],
+                "summary": "\u5347\u7ea7\u5f39\u7a97",
+                "description": "\u5347\u7ea7\u5f39\u7a97",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "properties": {
+                                "level_name": {
+                                    "description": "\u7b49\u7ea7\u540d\u79f0",
+                                    "type": "string"
+                                },
+                                "img": {
+                                    "description": "\u7b49\u7ea7\u56fe\u7247",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/order_upload_parse_address": {
+            "post": {
+                "tags": [
+                    "\u8ba2\u5355\u7ba1\u7406"
+                ],
+                "summary": "\u6279\u91cf\u53d1\u8d27",
+                "description": "\u6279\u91cf\u53d1\u8d27\u63a5\u53e3",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "file",
+                        "in": "query",
+                        "description": "\u4e0a\u4f20\u7684\u6587\u4ef6",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "source",
+                        "in": "query",
+                        "description": "\u53d1\u8d27\u5e73\u53f0 \u6dd8\u5b9d\uff1ataobao \u5929\u732b\uff1atmall \u4eac\u4e1c\uff1ajd \u54c1\u591a\u591a\uff1apdd \u5176\u4ed6\uff1aother",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessBean"
+                        }
+                    },
+                    "403": {
+                        "description": "fail",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorBean"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "CustomWarehouseGetListV1ResultBean": {
+            "properties": {
+                "id": {
+                    "description": "\u5feb\u9012ID",
+                    "type": "string"
+                },
+                "warehouseName": {
+                    "description": "\u5feb\u9012\u540d\u79f0",
+                    "type": "string"
+                },
+                "warehouseImgUrl": {
+                    "description": "\u5feb\u9012\u56fe\u7247url",
+                    "type": "string"
+                },
+                "expressSend": {
+                    "description": "\u5feb\u9012",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "id": {
+                                "description": "ID",
+                                "type": "string"
+                            },
+                            "expressSendName": {
+                                "description": "\u53d1\u8d27\u5730\u540d\u79f0",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "ErrorBean": {
+            "properties": {
+                "status": {
+                    "description": "\u72b6\u6001\u7801(0\u8bf7\u6c42\u6210\u529f \u5176\u4ed6\u8bf7\u6c42\u5931\u8d25)",
+                    "type": "boolean"
+                },
+                "data": {
+                    "description": "\u6570\u636e",
+                    "type": "boolean"
+                },
+                "err": {
+                    "description": "\u9519\u8bef\u4fe1\u606f",
+                    "type": "boolean"
+                }
+            }
+        },
+        "GetProductListV1ResultBean": {
+            "properties": {
+                "total": {
+                    "description": "\u603b\u6570\u91cf",
+                    "type": "string"
+                },
+                "index": {
+                    "description": "\u5f53\u524d\u9875\u6570",
+                    "type": "string"
+                },
+                "list": {
+                    "description": "\u6570\u636e",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "id": {
+                                "description": "\u5546\u54c1ID",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "\u5546\u54c1\u540d\u79f0",
+                                "type": "string"
+                            },
+                            "othumb": {
+                                "description": "\u5546\u54c1\u56fe\u7247",
+                                "type": "string"
+                            },
+                            "cost_price": {
+                                "description": "\u6210\u672c\u4ef7",
+                                "type": "string"
+                            },
+                            "weight": {
+                                "description": "\u91cd\u91cf",
+                                "type": "string"
+                            },
+                            "stock": {
+                                "description": "\u5546\u54c1\u5e93\u5b58",
+                                "type": "string"
+                            },
+                            "sales": {
+                                "description": "\u9500\u552e\u6570\u91cf",
+                                "type": "string"
+                            },
+                            "create_time": {
+                                "description": "\u521b\u5efa\u65f6\u95f4",
+                                "type": "string"
+                            },
+                            "user_source": {
+                                "description": "\u6536\u4ef6\u4eba\u6765\u6e90",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "GetListV1ResultBean": {
+            "properties": {
+                "id": {
+                    "description": "\u5feb\u9012ID",
+                    "type": "string"
+                },
+                "expressName": {
+                    "description": "\u5feb\u9012\u540d\u79f0",
+                    "type": "string"
+                },
+                "expressImgUrl": {
+                    "description": "\u5feb\u9012\u56fe\u7247url",
+                    "type": "string"
+                },
+                "warehouseSend": {
+                    "description": "\u4ed3\u5e93\u4fe1\u606f",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "id": {
+                                "description": "\u4ed3\u5e93ID",
+                                "type": "string"
+                            },
+                            "warehouseName": {
+                                "description": "\u4ed3\u5e93\u540d\u79f0",
+                                "type": "string"
+                            },
+                            "warehousePrice": {
+                                "description": "\u4ed3\u5e93\u5feb\u9012\u4ef7\u683c",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "ListPlatformOrderBean": {
+            "properties": {
+                "total": {
+                    "description": "\u603b\u6570\u91cf",
+                    "type": "integer"
+                },
+                "index": {
+                    "description": "\u5f53\u524d\u9875\u6570",
+                    "type": "string"
+                },
+                "list": {
+                    "description": "\u6570\u636e",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "ext_platform_order_sn": {
+                                "description": "\u7b2c\u4e09\u65b9\u8ba2\u5355\u5e73\u53f0\u53f7",
+                                "type": "string"
+                            },
+                            "consignee": {
+                                "description": "\u6536\u4ef6\u4eba\u59d3\u540d",
+                                "type": "string"
+                            },
+                            "consignee_mask": {
+                                "description": "\u6536\u4ef6\u4eba\u59d3\u540d\u8131\u654f \u5e73\u53f0\u662f\u62fc\u591a\u591a\u663e\u793a\u8131\u654f\u6570\u636e",
+                                "type": "string"
+                            },
+                            "mobile": {
+                                "description": "\u624b\u673a\u53f7",
+                                "type": "string"
+                            },
+                            "mobile_mask": {
+                                "description": "\u624b\u673a\u53f7\u8131\u654f \u5e73\u53f0\u662f\u62fc\u591a\u591a\u663e\u793a\u8131\u654f\u6570\u636e",
+                                "type": "string"
+                            },
+                            "address": {
+                                "description": "\u6536\u8d27\u5730\u5740",
+                                "type": "string"
+                            },
+                            "address_mask": {
+                                "description": "\u6536\u8d27\u5730\u5740\u8131\u654f \u5e73\u53f0\u662f\u62fc\u591a\u591a\u663e\u793a\u8131\u654f\u6570\u636e",
+                                "type": "string"
+                            },
+                            "province": {
+                                "description": "\u7701",
+                                "type": "string"
+                            },
+                            "city": {
+                                "description": "\u5e02",
+                                "type": "string"
+                            },
+                            "district": {
+                                "description": "\u533a",
+                                "type": "string"
+                            },
+                            "tag": {
+                                "description": "\u65d7\u5e1c\u6807\u8bb0\u989c\u8272 red yellow green purple blue grey",
+                                "type": "string"
+                            },
+                            "seller_memo": {
+                                "description": "\u5356\u5bb6\u5907\u6ce8",
+                                "type": "string"
+                            },
+                            "oaid": {
+                                "description": "oaid \u6dd8\u5b9d\u4e0b\u5355\u53c2\u6570",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "PackageGetListBean": {
+            "properties": {
+                "total": {
+                    "description": "\u603b\u6570\u91cf",
+                    "type": "integer"
+                },
+                "index": {
+                    "description": "\u5f53\u524d\u9875\u6570",
+                    "type": "string"
+                },
+                "list": {
+                    "description": "\u6570\u636e",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "express_sheet.no": {
+                                "description": "\u5e95\u5355\u8fb9\u53f7",
+                                "type": "string"
+                            },
+                            "express_sheet.create_time": {
+                                "description": "\u7533\u8bf7\u65f6\u95f4",
+                                "type": "string"
+                            },
+                            "express_sheet.reason": {
+                                "description": "\u7533\u8bf7\u539f\u56e0",
+                                "type": "string"
+                            },
+                            "express_sheet.status": {
+                                "description": "\u72b6\u6001 1 \u5f85\u5ba1\u6838 2\u5ba1\u6838\u901a\u8fc7 3\u9a73\u56de",
+                                "type": "string"
+                            },
+                            "express_sheet.remark": {
+                                "description": "\u5ba2\u670d\u5907\u6ce8",
+                                "type": "string"
+                            },
+                            "express_no": {
+                                "description": "\u5feb\u9012\u5355\u53f7",
+                                "type": "string"
+                            },
+                            "status": {
+                                "description": "'\u5305\u88f9\u72b6\u6001 f \u5f85\u4ed8\u6b3e p\u672a\u53d1\u8d27 s\u5df2\u53d1\u8d27 c\u5df2\u53d6\u6d88',",
+                                "type": "string"
+                            },
+                            "express_sheet.email": {
+                                "description": "\u63a5\u53d7\u90ae\u7bb1",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "ProductListV1ResultBean": {
+            "properties": {
+                "total": {
+                    "description": "\u603b\u6570\u91cf",
+                    "type": "integer"
+                },
+                "index": {
+                    "description": "\u5f53\u524d\u9875\u6570",
+                    "type": "string"
+                },
+                "list": {
+                    "description": "\u6570\u636e",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "productId": {
+                                "description": "\u5546\u54c1ID",
+                                "type": "string"
+                            },
+                            "warehouseId": {
+                                "description": "\u5173\u8054\u4ed3\u5e93ID",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "\u5546\u54c1\u540d\u79f0",
+                                "type": "string"
+                            },
+                            "othumb": {
+                                "description": "\u5546\u54c1\u56fe\u7247",
+                                "type": "string"
+                            },
+                            "price": {
+                                "description": "\u5546\u54c1\u4ef7\u683c",
+                                "type": "string"
+                            },
+                            "weight": {
+                                "description": "\u91cd\u91cf",
+                                "type": "string"
+                            },
+                            "stock": {
+                                "description": "\u5546\u54c1\u5e93\u5b58",
+                                "type": "string"
+                            },
+                            "sales": {
+                                "description": "\u9500\u552e\u6570\u91cf",
+                                "type": "string"
+                            },
+                            "createTime": {
+                                "description": "\u521b\u5efa\u65f6\u95f4",
+                                "type": "string"
+                            },
+                            "warehouseAliasName": {
+                                "description": "\u53d1\u8d27\u4ed3\u5e93",
+                                "type": "string"
+                            },
+                            "expressName": {
+                                "description": "\u5feb\u9012",
+                                "type": "string"
+                            },
+                            "expressPrice": {
+                                "description": "\u8fd0\u8d39",
+                                "type": "string"
+                            },
+                            "sourceInfo": {
+                                "description": "\u53d1\u8d27\u5e73\u53f0",
+                                "type": "array",
+                                "items": {
+                                    "properties": {
+                                        "user_source": {
+                                            "description": "\u53d1\u8d27\u5e73\u53f0\u540d\u79f0",
+                                            "type": "string"
+                                        },
+                                        "remark": {
+                                            "description": "\u8bf4\u660e",
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "ListUserShopBean": {
+            "properties": {
+                "total": {
+                    "description": "\u603b\u6570\u91cf",
+                    "type": "integer"
+                },
+                "index": {
+                    "description": "\u5f53\u524d\u9875\u6570",
+                    "type": "string"
+                },
+                "list": {
+                    "description": "\u6570\u636e",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "id": {
+                                "description": "ID",
+                                "type": "string"
+                            },
+                            "user_id": {
+                                "description": "\u7528\u6237ID",
+                                "type": "string"
+                            },
+                            "shop_id": {
+                                "description": "\u5e97\u94faID",
+                                "type": "string"
+                            },
+                            "shop_type": {
+                                "description": "\u5e97\u94fa\u7c7b\u578b",
+                                "type": "string"
+                            },
+                            "shop_name": {
+                                "description": "\u5e97\u94fa\u540d\u79f0",
+                                "type": "string"
+                            },
+                            "authorization_time": {
+                                "description": "\u6388\u6743\u65f6\u95f4",
+                                "type": "string"
+                            },
+                            "expiration_time": {
+                                "description": "\u8fc7\u671f\u65f6\u95f4",
+                                "type": "string"
+                            },
+                            "is_expiration": {
+                                "description": "\u662f\u5426\u8fc7\u671f true\u662f false\u5426",
+                                "type": "string"
+                            },
+                            "create_time": {
+                                "description": "\u521b\u5efa\u65f6\u95f4",
+                                "type": "string"
+                            },
+                            "shop_status": {
+                                "description": "\u5e97\u94fa\u72b6\u6001 0\u5173\u95ed 1\u5f00\u542f",
+                                "type": "string"
+                            },
+                            "is_tag": {
+                                "description": "\u662f\u5426\u6807\u8bb0 1\u4ee5\u6807\u8bb0  2\u672a\u6807\u8bb0",
+                                "type": "string"
+                            },
+                            "tag_color": {
+                                "description": "\u6807\u8bb0\u989c\u8272 'red','yellow','green','purple','blue'",
+                                "type": "string"
+                            },
+                            "tag_remark": {
+                                "description": "\u6807\u8bb0\u5907\u6ce8",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "SuccessBean": {
+            "properties": {
+                "status": {
+                    "description": "\u72b6\u6001\u7801(0\u8bf7\u6c42\u6210\u529f \u5176\u4ed6\u8bf7\u6c42\u5931\u8d25)",
+                    "type": "boolean"
+                },
+                "data": {
+                    "description": "\u6570\u636e",
+                    "type": "boolean"
+                },
+                "err": {
+                    "description": "\u9519\u8bef\u4fe1\u606f",
+                    "type": "boolean"
+                }
+            }
+        },
+        "GetUserBalanceListV1ResultBean": {
+            "properties": {
+                "total": {
+                    "description": "\u603b\u6570\u91cf",
+                    "type": "string"
+                },
+                "list": {
+                    "description": "\u6570\u636e",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "trade_number": {
+                                "description": "\u53d8\u66f4\u7f16\u53f7",
+                                "type": "string"
+                            },
+                            "type": {
+                                "description": "\u4ea4\u6613\u7c7b\u578b",
+                                "type": "string"
+                            },
+                            "amount": {
+                                "description": "\u4ea4\u6613\u70b9\u5238",
+                                "type": "string"
+                            },
+                            "balance": {
+                                "description": "\u4ea4\u6613\u540e\u70b9\u5238",
+                                "type": "string"
+                            },
+                            "additional": {
+                                "description": "\u4ea4\u6613\u5907\u6ce8",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
